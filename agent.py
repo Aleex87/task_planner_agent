@@ -12,15 +12,15 @@ class TaskPlannerAgent:
         self.memory = ConversationMemory(window_size=10)
 
         self.model = get_model(
-            temperature=0.7,
-            top_p=0.9,
+            temperature=0.2,
+            top_p=0.8,
         )
 
         self.agent = create_agent(
-            model=self.model,
-            tools=[create_task_list, prioritize_tasks],
-            system_prompt=get_system_prompt(),
-        )
+        model=self.model,
+        tools=[create_task_list, prioritize_tasks],
+        system_prompt=get_system_prompt(), 
+    )
 
     def _build_messages(self, user_input: str) -> list[dict[str, str]]:
         messages = self.memory.get_messages().copy()

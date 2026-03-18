@@ -1,4 +1,8 @@
 def create_task_list(goal: str) -> list[str]:
+    """
+    Generate a list of tasks from a user goal.
+    """
+
     goal_lower = goal.lower()
 
     if "study" in goal_lower or "exam" in goal_lower:
@@ -41,6 +45,10 @@ def create_task_list(goal: str) -> list[str]:
 
 
 def prioritize_tasks(tasks: list[str]) -> list[str]:
+    """
+    Order tasks based on simple priority rules.
+    """
+
     priority_keywords = [
         "define",
         "collect",
